@@ -4,22 +4,22 @@ function initialize(){
 	
 	var bicicletar = new L.layerGroup();
 	var bicicletarIcon = L.icon({
-		iconUrl: '../js/icons/bicycle.png',
+		iconUrl: 'js/icons/bicycle.png',
 		iconSize: [25,25]
 	});
 	var bicicletario = new L.layerGroup();
 	var bicicletarioIcon = L.icon({
-		iconUrl: '../js/icons/bike_park.png',
+		iconUrl: 'js/icons/bike_park.png',
 		iconSize: [25, 25]
 	});
 	var airPump = new L.layerGroup();
 	var airPumpIcon = L.icon({
-		iconUrl: '../js/icons/airPump_icon.png',
+		iconUrl: 'js/icons/airPump_icon.png',
 		iconSize: [25, 25]
 	});
 	var bicicletaria = new L.layerGroup();
 	var bicicletariaIcon = L.icon({
-		iconUrl: '../js/icons/bikeshop.png',
+		iconUrl: 'js/icons/bikeshop.png',
 		iconSize: [25, 25]
 	});
 	for( var point in data.elements){
@@ -36,14 +36,10 @@ function initialize(){
 		}
 	}	
 	var osmURL = 'https:\/\/a.tiles.mapbox.com\/v4\/mapbox.streets\/{z}\/{x}\/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpbTgzcHQxMzAxMHp0eWx4bWQ1ZHN2NGcifQ.WVwjmljKYqKciEZIC3NfLA';
-	var sateURL = 'http://otile1.mqcdn.com/tiles/1.0.0/osm/{zoom}/{x}/{y}.png';
 	var cyclesURL =  'http://tile.lonvia.de/cycling/{z}/{x}/{y}.png';
-  var BING_KEY = 'AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L'
 
 	var streets = L.tileLayer(osmURL,{maxZoom: 19});
-	var satelite = L.tileLayer(sateURL,{maxZoom: 19});
 	var cycle = L.tileLayer(cyclesURL,{maxZoom: 19});
-	var bingLayer =L.tileLayer(BING_KEY,{maxZoom: 19});
 	
 	var map = L.map('map',{
 		center: [-3.7487, -38.5243],
@@ -52,15 +48,13 @@ function initialize(){
 	});
 	var base = {
 			"Open Street Map": streets,
-			"Satélite": satelite,
-			"Bing Map": BING_KEY,
 			
 	};
 	var layers = {
-			"Infra Cicloviária": cycle,
+			"Cicloviária": cycle,
 			"Bicicletar": bicicletar,
 			"Bicicletário": bicicletario,
-			"Bicicletaria": bicicletaria,
+			"Bicicletária": bicicletaria,
 			"Posto (Bombas de Ar)": airPump
 	};
 	L.control.layers(base,layers).addTo(map);
